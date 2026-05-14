@@ -154,6 +154,8 @@ footer {
     position: relative;
   }
 
+
+
   header .max-w-7xl {
     align-items: flex-start !important;
     padding-top: 14px !important;
@@ -177,7 +179,7 @@ footer {
   #mobileMenuButton {
     position: absolute !important;
     right: 20px !important;
-    top: 20px !important;
+    top: 50px !important;
     margin: 0 !important;
     transform: none !important;
     z-index: 9999 !important;
@@ -210,9 +212,11 @@ footer {
     gap: 34px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-bottom: 6px !important;
     padding-top: 10px !important;
-    padding-bottom: 0px !important;
+    padding-bottom: 10px !important;
     border: none !important;
+    border-bottom: 1px solid rgba(127, 29, 29, 0.45) !important;
   }
 
   .mobile-social-row a {
@@ -237,6 +241,7 @@ footer {
 
   section.relative.bg-black.text-white.overflow-hidden {
     min-height: 350px;
+    border-top: none !important;
   }
 
   section.relative.bg-black.text-white.overflow-hidden .relative.z-20 {
@@ -339,6 +344,21 @@ footer {
   footer p {
     line-height: 1.5;
   }
+
+  #mobileMenu {
+    border-top: none !important;
+  }
+
+  #mobileMenu.hidden {
+    display: none !important;
+  }
+
+  nav,
+  nav .max-w-7xl {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 1px !important;
+  }
 }
 
 /* =========================
@@ -380,7 +400,7 @@ footer {
     display: block !important;
     position: absolute !important;
     right: 28px !important;
-    top: 72px !important;
+    top: 50px !important;
     z-index: 9999 !important;
   }
 
@@ -397,13 +417,14 @@ footer {
   /* Mobile-style hero for tablet portrait */
   .hero-bg {
     background-image: url("../images/hero-cctv-mobl.jpg");
-    background-position: 90% 25%;
-    background-size: auto 200%;
+    background-position: 100% 25%;
+    background-size: auto 220%;
     background-repeat: no-repeat;
   }
 
   section.relative.bg-black.text-white.overflow-hidden {
     min-height: 350px;
+    border-top: none !important;
   }
 
   section.relative.bg-black.text-white.overflow-hidden .relative.z-20 {
@@ -468,8 +489,38 @@ footer {
 
   .mobile-social-row {
     width: auto !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
     gap: 18px !important;
+    margin-bottom: 6px !important;
+    border-bottom: none !important;
+    position: relative;
+    padding-left: 26px !important;
+  }
+
+  .mobile-social-row::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5px;
+    height: 20px;
+    background: #374151;
+  }
+
+  #mobileMenu {
+    border-top: none !important;
+  }
+
+  #mobileMenu.hidden {
+    display: none !important;
+  }
+
+  nav,
+  nav .max-w-7xl {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 1px !important;
   }
 }
