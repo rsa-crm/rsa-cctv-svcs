@@ -79,6 +79,70 @@ header .max-w-7xl {
   line-height: 1.6;
 }
 
+/* =========================
+   FEATURED PRODUCTS PAGING
+========================= */
+
+.featured-products-page {
+  display: none !important;
+  min-height: 360px !important;
+}
+
+.featured-products-page.active {
+  display: grid !important;
+}
+
+.featured-product-card {
+  display: grid !important;
+  grid-template-rows: 220px 44px 24px 30px !important;
+  text-align: center !important;
+  align-items: center !important;
+}
+
+.featured-product-image {
+  width: 100% !important;
+  height: 220px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.featured-product-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  padding: 12px !important;
+  display: block !important;
+}
+
+.featured-product-name {
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.featured-dots {
+  display: flex !important;
+  min-height: 20px !important;
+}
+
+.featured-dot {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 9999px !important;
+  background: #d1d5db !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.featured-dot.active {
+  background: #b91c1c !important;
+}
+
 footer {
   background: #000000;
   color: #ffffff;
