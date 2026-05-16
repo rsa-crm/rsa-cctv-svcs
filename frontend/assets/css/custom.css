@@ -150,7 +150,7 @@ footer {
 }
 
 /* =========================
-   MOBILE FIXES
+   MOBILE VIEW
 ========================= */
 
 @media (max-width: 768px) {
@@ -193,12 +193,14 @@ footer {
     top: 0 !important;
     right: 0 !important;
     height: 100vh !important;
-    width: 80% !important;
-    max-width: 360px !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
     background: #000 !important;
     z-index: 9998 !important;
-    padding: 96px 32px 32px !important;
+    padding: 200px 32px 32px !important;
     flex-direction: column !important;
+    gap: 30px !important;
+    align-items: center !important;
   }
 
   #mobileMenuOverlay:not(.hidden) {
@@ -442,7 +444,9 @@ footer {
     max-width: 360px !important;
     background: #000 !important;
     z-index: 9998 !important;
-    padding: 96px 32px 32px !important;
+    padding: 120px 32px 32px !important;
+    gap: 30px !important;
+    align-items: center !important;
   }
 
    #mobileMenuOverlay:not(.hidden) {
@@ -675,6 +679,8 @@ footer {
     background: #000 !important;
     z-index: 9998 !important;
     padding: 96px 32px 32px !important;
+    gap: 10px !important;
+    align-items: center !important;
   }
 
   #mobileMenuOverlay:not(.hidden) {
