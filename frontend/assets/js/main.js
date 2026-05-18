@@ -83,3 +83,59 @@ if (featuredGrid && featuredDotsContainer) {
     renderFeaturedProducts();
   });
 }
+const promoGrid = document.getElementById("promoProductsGrid");
+const promoDotsContainer = document.getElementById("promoProductsDots");
+
+if (promoGrid && promoDotsContainer) {
+  const promoCards = Array.from(promoGrid.querySelectorAll(".promo-product-card"));
+  let currentPromoPage = 0;
+
+  function getPromoProductsPerPage() {
+    return window.innerWidth <= 767 &&
+           window.matchMedia("(orientation: portrait)").matches
+           ? 6
+           : 5;
+  }
+
+  function renderPromoProducts() {
+    const perPage = getPromoProductsPerPage();
+    const totalPages = Math.ceil(promoCards.length / perPage);
+
+    if (currentPromoPage >= totalPages) {
+      currentPromoPage = totalPages - 1;
+    }
+
+    promoCards.forEach((card, index) => {
+      const start = currentPromoPage * perPage;
+      const end = start + perPage;
+
+      card.style.display = index >= start && index < end ? "grid" : "none";
+    });
+
+    promoDotsContainer.innerHTML = "";
+
+    for (let i = 0; i < totalPages; i++) {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "promo-dot";
+
+      if (i === currentPromoPage) {
+        dot.classList.add("active");
+      }
+
+      dot.addEventListener("click", () => {
+        currentPromoPage = i;
+        renderPromoProducts();
+      });
+
+      promoDotsContainer.appendChild(dot);
+    }
+  }
+
+  renderPromoProducts();
+
+  window.addEventListener("resize", () => {
+    currentPromoPage = 0;
+    renderPromoProducts();
+  });
+}

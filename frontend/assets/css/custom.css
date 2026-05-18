@@ -85,7 +85,7 @@ header .max-w-7xl {
 
 .featured-products-page {
   display: none !important;
-  min-height: 360px !important;
+  min-height: 300px !important;
 }
 
 .featured-products-page.active {
@@ -93,14 +93,14 @@ header .max-w-7xl {
 }
 
 .featured-product-card {
-  grid-template-rows: 220px 44px 24px 30px !important;
+  grid-template-rows: 180px 44px 24px 30px !important;
   text-align: center !important;
   align-items: center !important;
 }
 
 .featured-product-image {
   width: 100% !important;
-  height: 220px !important;
+  height: 180px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -125,6 +125,7 @@ header .max-w-7xl {
 .featured-dots {
   display: flex !important;
   min-height: 20px !important;
+  margin-top: 20px !important;
 }
 
 .featured-dot {
@@ -142,12 +143,171 @@ header .max-w-7xl {
   background: #b91c1c !important;
 }
 
+
 footer {
   background: #000000;
   color: #ffffff;
   text-align: center;
   padding: 24px 0;
   font-size: 14px;
+}
+
+/* =========================
+   PROMOTIONS PREVIEW
+========================= */
+
+.promo-products-page {
+  display: grid !important;
+  min-height: 360px !important;
+}
+
+.promo-product-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: 220px 44px 24px 22px 32px;
+  text-align: center;
+  align-items: center;
+}
+
+.promo-sale-badge {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  background: #b91c1c;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.promo-product-image {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.promo-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+  display: block;
+}
+
+.promo-product-name {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-old-price {
+  color: #000000 !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  text-decoration: line-through !important;
+}
+
+.promo-sale-price {
+  color: #b91c1c !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  line-height: 1.2 !important;
+}
+
+.promo-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #d1d5db;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.promo-dot.active {
+  background: #b91c1c;
+}
+
+.promo-dots {
+  display: flex !important;
+  min-height: 20px !important;
+  margin-top: 20px !important;
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  #promoProductsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 22px 16px !important;
+  }
+
+  .promo-products-page {
+    min-height: auto !important;
+  }
+
+  .promo-product-card {
+    grid-template-rows: 130px 46px 34px 20px 28px !important;
+  }
+
+  .promo-product-image {
+    height: 130px !important;
+  }
+
+  .promo-product-image img {
+    padding: 8px !important;
+  }
+}
+
+/* =========================
+   SERVICES PREVIEW
+========================= */
+
+.services-preview-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-preview-card {
+  display: grid;
+  grid-template-rows: 300px auto auto;
+  align-items: start;
+  row-gap: 14px;
+}
+
+.service-preview-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.service-preview-title {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+/* MOBILE PORTRAIT */
+@media (max-width: 768px) and (orientation: portrait) {
+
+  .services-preview-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+}
+
+/* MOBILE LANDSCAPE + TABLET */
+@media (min-width: 769px) {
+
+  .services-preview-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
 }
 
 /* =========================
@@ -1016,4 +1176,40 @@ footer {
     transform: translateY(-30px) !important;
   }
 
+}
+/* =========================
+   SERVICES PREVIEW - IPAD PORTRAIT FINAL
+========================= */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+  .services-preview-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 34px !important;
+  }
+
+  .service-preview-card {
+    display: grid !important;
+    grid-template-rows: 500px auto auto !important;
+    row-gap: 18px !important;
+  }
+
+  .service-preview-image {
+    width: 78% !important;
+    height: 500px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 8px !important;
+  }
+
+  .service-preview-card h3,
+  .service-preview-card p {
+    width: 78% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }

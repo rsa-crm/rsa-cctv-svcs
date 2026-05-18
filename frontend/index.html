@@ -309,7 +309,6 @@
   <main class="bg-gray-100">
     <section class="bg-gray-100" style="padding-top: 40px; padding-bottom: 6px;">
       <div class="max-w-7xl mx-auto px-4">
-
         <div class="bg-white border rounded-xl shadow-sm p-6 md:p-8">
           <div class="flex justify-between items-center mb-6">
             <p class="text-red-700 text-sm font-bold uppercase">Featured Products</p>
@@ -457,12 +456,210 @@
               <p class="text-red-700 font-black text-base">&#8369;850.00</p>
             </div>
           </div>
-          <div id="featuredProductsDots" class="featured-dots flex justify-center items-center gap-3 mt-8"></div>
+          <div id="featuredProductsDots" class="featured-dots flex justify-center items-center gap-3 mt-32"></div>
         </div>
       </div>
     </section>
-    <section class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-6 content-card-grid">
+    <!-- PROMOTIONS PREVIEW -->
+    <section class="bg-gray-100 py-8">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="bg-white border rounded-xl shadow-sm p-6 md:p-8">
+          <div class="flex justify-between items-center mb-6">
+            <p class="text-red-700 text-sm font-bold uppercase">Promotions</p>
+            <a href="promotions.html" class="text-sm font-bold hover:text-red-700">View All ›</a>
+          </div>
 
+          <div id="promoProductsGrid"
+              class="promo-products-page active grid gap-5"
+              style="grid-template-columns: repeat(5, minmax(0, 1fr));">
+
+            <!-- Promo 1 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/bullet-camera-03.png" alt="ColorVu Camera">
+              </div>
+              <p class="promo-product-name text-sm font-black">ColorVu Camera</p>
+              <p class="text-gray-500 text-xs">Low-light CCTV Camera</p>
+              <p class="promo-old-price">&#8369;4,500.00</p>
+              <p class="promo-sale-price">&#8369;3,950.00</p>
+            </div>
+
+            <!-- Promo 2 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/8ch-dvr-01.png" alt="8CH DVR Recorder">
+              </div>
+              <p class="promo-product-name text-sm font-black">8CH DVR Recorder</p>
+              <p class="text-gray-500 text-xs">Recorder System</p>
+              <p class="promo-old-price">&#8369;5,200.00</p>
+              <p class="promo-sale-price">&#8369;4,500.00</p>
+            </div>
+
+            <!-- Promo 3 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/switch-01.png" alt="POE Switch">
+              </div>
+              <p class="promo-product-name text-sm font-black">POE Switch</p>
+              <p class="text-gray-500 text-xs">Networking</p>
+              <p class="promo-old-price">&#8369;2,800.00</p>
+              <p class="promo-sale-price">&#8369;2,350.00</p>
+            </div>
+
+            <!-- Promo 4 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/turret-camera-02.png" alt="Wireless CCTV Kit">
+              </div>
+              <p class="promo-product-name text-sm font-black">Wireless CCTV Kit</p>
+              <p class="text-gray-500 text-xs">Security Bundle</p>
+              <p class="promo-old-price">&#8369;12,500.00</p>
+              <p class="promo-sale-price">&#8369;10,990.00</p>
+            </div>
+
+            <!-- Promo 5 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/dome-camera-03.png" alt="2MP Indoor Camera">
+              </div>
+              <p class="promo-product-name text-sm font-black">2MP Indoor Camera</p>
+              <p class="text-gray-500 text-xs">Indoor CCTV Camera</p>
+              <p class="promo-old-price">&#8369;2,000.00</p>
+              <p class="promo-sale-price">&#8369;1,650.00</p>
+            </div>
+
+            <!-- Promo 6 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/dome-camera-01.png" alt="4MP Dome Camera">
+              </div>
+              <p class="promo-product-name text-sm font-black">4MP Dome Camera</p>
+              <p class="text-gray-500 text-xs">Indoor CCTV Camera</p>
+              <p class="promo-old-price">&#8369;3,200.00</p>
+              <p class="promo-sale-price">&#8369;2,750.00</p>
+            </div>
+
+            <!-- Promo 7 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/bullet-camera-01.png" alt="4MP Bullet Camera">
+              </div>
+              <p class="promo-product-name text-sm font-black">4MP Bullet Camera</p>
+              <p class="text-gray-500 text-xs">Outdoor CCTV Camera</p>
+              <p class="promo-old-price">&#8369;3,500.00</p>
+              <p class="promo-sale-price">&#8369;2,950.00</p>
+            </div>
+
+            <!-- Promo 8 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/switch-02.png" alt="Ethernet Switch">
+              </div>
+              <p class="promo-product-name text-sm font-black">Ethernet Switch</p>
+              <p class="text-gray-500 text-xs">Networking</p>
+              <p class="promo-old-price">&#8369;1,100.00</p>
+              <p class="promo-sale-price">&#8369;850.00</p>
+            </div>
+
+            <!-- Promo 9 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/8ch-dvr-03.png" alt="16CH DVR Recorder">
+              </div>
+              <p class="promo-product-name text-sm font-black">16CH DVR Recorder</p>
+              <p class="text-gray-500 text-xs">Recorder System</p>
+              <p class="promo-old-price">&#8369;8,500.00</p>
+              <p class="promo-sale-price">&#8369;7,250.00</p>
+            </div>
+
+            <!-- Promo 10 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/turret-camera-01.png" alt="4MP Turret Camera">
+              </div>
+              <p class="promo-product-name text-sm font-black">4MP Turret Camera</p>
+              <p class="text-gray-500 text-xs">Smart Security Camera</p>
+              <p class="promo-old-price">&#8369;3,000.00</p>
+              <p class="promo-sale-price">&#8369;2,650.00</p>
+            </div>
+
+            <!-- Promo 11 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/bullet-camera-02.png" alt="4MP Bullet Camera Pro">
+              </div>
+              <p class="promo-product-name text-sm font-black">4MP Bullet Camera Pro</p>
+              <p class="text-gray-500 text-xs">Outdoor CCTV Camera</p>
+              <p class="promo-old-price">&#8369;3,800.00</p>
+              <p class="promo-sale-price">&#8369;3,150.00</p>
+            </div>
+
+            <!-- Promo 12 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/turret-camera-03.png" alt="Smart Turret Camera">
+              </div>
+              <p class="promo-product-name text-sm font-black">Smart Turret Camera</p>
+              <p class="text-gray-500 text-xs">Smart Security Camera</p>
+              <p class="promo-old-price">&#8369;3,400.00</p>
+              <p class="promo-sale-price">&#8369;2,890.00</p>
+            </div>
+
+            <!-- Promo 13 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/8ch-dvr-02.png" alt="8CH DVR Security Recorder">
+              </div>
+              <p class="promo-product-name text-sm font-black">8CH DVR Security Recorder</p>
+              <p class="text-gray-500 text-xs">Recorder System</p>
+              <p class="promo-old-price">&#8369;5,500.00</p>
+              <p class="promo-sale-price">&#8369;4,750.00</p>
+            </div>
+
+            <!-- Promo 14 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/dome-camera-02.png" alt="Indoor Dome Camera">
+              </div>
+              <p class="promo-product-name text-sm font-black">Indoor Dome Camera</p>
+              <p class="text-gray-500 text-xs">Indoor CCTV Camera</p>
+              <p class="promo-old-price">&#8369;3,100.00</p>
+              <p class="promo-sale-price">&#8369;2,590.00</p>
+            </div>
+
+            <!-- Promo 15 -->
+            <div class="promo-product-card">
+              <span class="promo-sale-badge">SALE</span>
+              <div class="promo-product-image">
+                <img src="./assets/images/products/switch-03.png" alt="Gigabit Ethernet Switch">
+              </div>
+              <p class="promo-product-name text-sm font-black">Gigabit Ethernet Switch</p>
+              <p class="text-gray-500 text-xs">Networking</p>
+              <p class="promo-old-price">&#8369;1,350.00</p>
+              <p class="promo-sale-price">&#8369;990.00</p>
+            </div>
+          </div>
+          <div id="promoProductsDots"
+              class="promo-dots flex justify-center items-center gap-3 mt-8">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="max-w-7xl mx-auto px-4 pt-2 pb-8 grid grid-cols-1 lg:grid-cols-3 gap-6 content-card-grid">
       <div class="bg-white border rounded-xl shadow-sm p-6">
         <p class="text-red-700 text-sm font-bold uppercase mb-2">About Us</p>
 
@@ -543,11 +740,60 @@
             <span>100% Customer Satisfaction</span>
           </li>
         </ul>
-
       </div>
 
     </section>
-    <section class="bg-black text-white py-10 border-t border-red-950">
+    <section class="bg-gray-100 py-8">
+      <div class="max-w-7xl mx-auto px-4">
+
+        <div class="bg-white border rounded-xl shadow-sm p-6 md:p-8">
+          <div class="flex justify-between items-center mb-8">
+            <p class="text-red-700 text-sm font-bold uppercase">Our Services</p>
+            <a href="services.html" class="text-sm font-bold hover:text-red-700">View All ›</a>
+          </div>
+
+          <div class="grid gap-6 services-preview-grid">
+            <div class="service-preview-card">
+              <img src="./assets/images/services/service-cctv-installation.png"
+                  alt="CCTV Installation"
+                  class="service-preview-image">
+              <h3 class="service-preview-title font-black text-xl">
+                CCTV Installation
+              </h3>
+              <p class="text-gray-600 text-sm leading-6">
+                Professional CCTV setup for homes, offices, shops, and commercial properties.
+              </p>
+            </div>
+            <div class="service-preview-card">
+              <img src="./assets/images/services/service-maintenance.png"
+                  alt="Maintenance Service"
+                  class="service-preview-image">
+              <h3 class="service-preview-title font-black text-xl">
+                Maintenance Service
+              </h3>
+              <p class="text-gray-600 text-sm leading-6">
+                Regular CCTV inspection, cleaning, testing, and system health checks.
+              </p>
+            </div>
+            <div class="service-preview-card">
+              <img src="./assets/images/services/service-repair-troubleshooting.png"
+                  alt="Repair and Troubleshooting"
+                  class="service-preview-image">
+
+              <h3 class="service-preview-title font-black text-xl">
+                Repair & Troubleshooting
+              </h3>
+
+              <p class="text-gray-600 text-sm leading-6">
+                Fix camera issues, DVR/NVR problems, cabling faults, and video loss concerns.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="bg-black text-white py-10 border-t border-red-950 mt-2">
       <div class="max-w-7xl mx-auto px-4 text-center">
 
         <p class="text-red-600 text-sm font-bold uppercase mb-3">
@@ -588,6 +834,5 @@
   </footer>
 
   <script src="./assets/js/main.js"></script>
-
 </body>
 </html>
