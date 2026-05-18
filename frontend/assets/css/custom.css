@@ -385,6 +385,24 @@ footer {
   .top-brands-grid {
     transform: translateY(-10px);
   }
+
+  main > section {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  main > section:first-child {
+    padding-top: 40px !important;
+  }
+
+  .content-card-grid {
+    row-gap: 24px !important;
+  }
+
+  .services-section {
+    margin-bottom: 60px !important;
+  }
+
 }
 
 /* =========================
