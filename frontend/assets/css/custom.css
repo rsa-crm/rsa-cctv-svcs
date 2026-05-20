@@ -1401,9 +1401,8 @@ footer {
 }
 
 .catalog-brand-logo {
-  height: 35px;
-  max-width: 250px;
-  width: auto;
+  width: 140px;
+  height: 40px;
   object-fit: contain;
   object-position: left center;
   margin-bottom: 12px;
