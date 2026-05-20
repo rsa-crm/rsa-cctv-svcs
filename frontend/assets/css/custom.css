@@ -1345,7 +1345,7 @@ footer {
 }
 
 .brand-strip-item img {
-  max-height: 52px;
+  max-height: 80px;
   width: auto;
   object-fit: contain;
   opacity: 0.95;
