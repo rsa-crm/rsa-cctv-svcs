@@ -1350,7 +1350,7 @@ footer {
   }
 
   .products-hero-bg {
-    background-position: 90% center;
+    background-position: 95% center;
     background-size: cover;
   }
 
@@ -1952,6 +1952,11 @@ footer {
   flex-shrink: 0;
   display: flex;
   align-items: center;
+}
+
+.feature-card-icon i {
+  color: #b91c1c;
+  font-size: 40px;
 }
 
 .service-feature-item h4 {
