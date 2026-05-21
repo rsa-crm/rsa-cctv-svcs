@@ -224,3 +224,32 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
 
   renderProductsPage();
 }
+/* =========================
+   PRODUCTS CATEGORY FILTER
+========================= */
+
+const productFilterButtons = document.querySelectorAll(".product-filter-btn");
+
+if (productsGrid && productFilterButtons.length) {
+  productFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      productFilterButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const filter = button.getAttribute("data-filter");
+      const productCards = Array.from(
+        productsGrid.querySelectorAll(".catalog-product-card")
+      );
+
+      productCards.forEach((card) => {
+        const isSaleProduct = card.querySelector(".catalog-sale-price");
+
+        if (filter === "all") {
+          card.style.display = "flex";
+        } else if (filter === "sale") {
+          card.style.display = isSaleProduct ? "flex" : "none";
+        }
+      });
+    });
+  });
+}
