@@ -428,7 +428,7 @@ footer {
 }
 
 /* =========================
-   MOBILE VIEW
+   MOBILE VIEW - FOR HOMEPAGE/HEADER/GENERAL
 ========================= */
 
 @media (max-width: 768px) {
@@ -1307,18 +1307,99 @@ footer {
   transform: translateY(-10px);
 }
 
+/* =========================
+   MOBILE VIEW - FOR PRODUCTS PAGE
+========================= */
+
 @media (max-width: 768px) {
+
+  .products-hero-section {
+    height: 420px;
+    min-height: 420px;
+  }
+
   .products-hero-bg {
     background-position: 100% center;
     background-size: cover;
   }
 
-  .products-hero-features {
-    gap: 18px;
-  }
   .products-hero-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     transform: translateY(-12px);
   }
+  /* Push small paragraph lower */
+  .products-hero-content > p:nth-of-type(2) {
+    display: block;
+    margin-top: auto !important;
+    max-width: 100%;
+    width: 100%;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    margin-bottom: 180px !important;
+    position: relative;
+    top: 160px;
+  }
+  .hero-nowrap {
+    white-space: nowrap;
+  }
+
+  /* Move features to bottom */
+  .products-hero-features {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px !important;
+    width: 100%;
+    margin-top: 0 !important;
+  }
+
+  /* Smaller feature items */
+  .products-hero-feature {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 8px !important;
+    min-height: 72px;
+  }
+
+  .products-hero-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 26px !important;
+    margin-top: 4px;
+  
+  }
+
+  /* SVG Icon Size */
+  .products-hero-icon svg {
+  width: 30px !important;
+  height: 30px !important;
+  }
+
+  .products-hero-feature div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Smaller feature title */
+  .products-hero-feature h3 {
+    font-size: 12px !important;
+    line-height: 1.05 !important;
+    margin: 0 !important;
+  }
+
+  /* Smaller feature text */
+  .products-hero-feature p {
+    font-size: 11px !important;
+    line-height: 1.15 !important;
+    margin: 0 !important;
+  }
+
   .products-breadcrumb {
     display: flex;
     margin-bottom: 28px !important;
