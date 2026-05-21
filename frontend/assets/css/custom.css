@@ -1428,19 +1428,73 @@ footer {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
   gap: 10px;
-
+  padding-bottom: 8px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  cursor: grab;
+  position: relative;
+}
+
+.products-category-filter.two-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  align-items: start;
 }
 
 .products-category-filter::-webkit-scrollbar {
   display: none;
 }
 
+.products-category-scroll-wrap {
+  position: relative;
+}
+
+.category-scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-54%);
+  z-index: 5;
+
+  width: 34px;
+  height: 44px;
+
+  background: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 24px;
+  font-weight: 800;
+
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.category-scroll-left {
+  left: 0;
+}
+
+.category-scroll-right {
+  right: 0;
+}
+
+.products-category-scroll-wrap:hover .category-scroll-btn {
+  opacity: 1;
+}
+
+.products-category-filter.dragging {
+  cursor: grabbing;
+}
+
 .product-filter-btn {
   flex: 0 0 auto;
   white-space: nowrap;
+  min-width: max-content;
   border: 1px solid #e5e7eb;
   background: #ffffff;
   color: #111827;
@@ -1449,6 +1503,7 @@ footer {
   padding: 14px 22px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+
 }
 
 .product-filter-btn.active,

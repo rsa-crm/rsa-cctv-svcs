@@ -314,3 +314,102 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
   renderProductsPage();
 
 }
+/* =========================
+   DRAG SCROLL - CATEGORY STRIP
+========================= */
+
+const categoryStrip = document.querySelector(".products-category-filter");
+
+if (categoryStrip) {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  categoryStrip.addEventListener("mousedown", (e) => {
+    isDown = true;
+    categoryStrip.classList.add("dragging");
+    startX = e.pageX - categoryStrip.offsetLeft;
+    scrollLeft = categoryStrip.scrollLeft;
+  });
+
+  categoryStrip.addEventListener("mouseleave", () => {
+    isDown = false;
+    categoryStrip.classList.remove("dragging");
+  });
+
+  categoryStrip.addEventListener("mouseup", () => {
+    isDown = false;
+    categoryStrip.classList.remove("dragging");
+  });
+
+  categoryStrip.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+
+    const x = e.pageX - categoryStrip.offsetLeft;
+    const walk = (x - startX) * 1.5;
+
+    categoryStrip.scrollLeft = scrollLeft - walk;
+  });
+}
+/* =========================
+   CATEGORY STRIP ROW BALANCER
+========================= */
+
+const categoryFilter = document.querySelector(".products-category-filter");
+
+if (categoryFilter) {
+  const categoryButtons = Array.from(
+    categoryFilter.querySelectorAll(".product-filter-btn")
+  );
+
+  function balanceCategoryRows() {
+    const totalCategories = categoryButtons.length;
+
+    categoryFilter.innerHTML = "";
+
+    if (totalCategories <= 15) {
+      categoryFilter.classList.remove("two-row");
+
+      categoryButtons.forEach((button) => {
+        categoryFilter.appendChild(button);
+      });
+
+      return;
+    }
+
+    categoryFilter.classList.add("two-row");
+
+    const firstRowCount = Math.ceil(totalCategories / 2);
+
+    const firstRow = categoryButtons.slice(0, firstRowCount);
+    const secondRow = categoryButtons.slice(firstRowCount);
+
+    for (let i = 0; i < firstRowCount; i++) {
+      if (firstRow[i]) categoryFilter.appendChild(firstRow[i]);
+      if (secondRow[i]) categoryFilter.appendChild(secondRow[i]);
+    }
+  }
+
+  balanceCategoryRows();
+}
+const categoryScrollWrap = document.querySelector(".products-category-scroll-wrap");
+const categoryScrollStrip = document.querySelector(".products-category-filter");
+const categoryScrollLeft = document.querySelector(".category-scroll-left");
+const categoryScrollRight = document.querySelector(".category-scroll-right");
+
+if (categoryScrollWrap && categoryScrollStrip && categoryScrollLeft && categoryScrollRight) {
+  categoryScrollLeft.addEventListener("click", () => {
+    categoryScrollStrip.scrollBy({
+      left: -260,
+      behavior: "smooth"
+    });
+  });
+
+  categoryScrollRight.addEventListener("click", () => {
+    categoryScrollStrip.scrollBy({
+      left: 260,
+      behavior: "smooth"
+    });
+  });
+}
