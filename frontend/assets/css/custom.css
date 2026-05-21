@@ -1458,6 +1458,16 @@ footer {
   color: #ffffff;
 }
 
+.product-filter-btn i {
+  color: #b91c1c;
+  font-size: 14px;
+}
+
+.product-filter-btn.active i,
+.product-filter-btn:hover i {
+  color: #ffffff;
+}
+
 .brand-strip-row {
   display: flex;
   align-items: center;
