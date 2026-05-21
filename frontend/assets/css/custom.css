@@ -1066,6 +1066,10 @@ footer {
   .feature-box h3 {
   margin-bottom: 8px !important;
   }
+  .products-hero-bg {
+    background-size: 90% auto !important;
+    background-position: 120% center !important;
+  }
 
 }
 
@@ -1308,7 +1312,7 @@ footer {
 }
 
 /* =========================
-   MOBILE VIEW - FOR PRODUCTS PAGE
+   MOBILE VIEW - FOR PRODUCTS PAGE / PORTRAIT
 ========================= */
 
 @media (max-width: 768px) {
@@ -1319,12 +1323,12 @@ footer {
   }
 
   .products-hero-bg {
-    background-position: 100% center;
+    background-position: 90% center;
     background-size: cover;
   }
 
   .products-hero-content {
-    height: 100%;
+    height: 105%;
     display: flex;
     flex-direction: column;
     transform: translateY(-12px);
@@ -1339,8 +1343,10 @@ footer {
     line-height: 1.45 !important;
     margin-bottom: 180px !important;
     position: relative;
-    top: 160px;
+    top: 170px;
+    padding-left: 4px;
   }
+
   .hero-nowrap {
     white-space: nowrap;
   }
@@ -1398,6 +1404,11 @@ footer {
     font-size: 11px !important;
     line-height: 1.15 !important;
     margin: 0 !important;
+  }
+
+  .products-hero-icon,
+  .products-hero-icon i {
+    color: #dc2626 !important;
   }
 
   .products-breadcrumb {
