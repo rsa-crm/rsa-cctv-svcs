@@ -25,6 +25,8 @@ header .hidden.md\:flex i {
   width: 20px;
   text-align: center;
   line-height: 1;
+  position: relative;
+  top: 1px;
 }
 
 .hero-bg {
