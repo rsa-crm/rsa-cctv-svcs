@@ -24,6 +24,7 @@ header .max-w-7xl {
 header .hidden.md\:flex i {
   width: 20px;
   text-align: center;
+  line-height: 1;
 }
 
 .hero-bg {
