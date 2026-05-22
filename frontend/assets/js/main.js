@@ -160,13 +160,47 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
   let currentProductsPage = 0;
   let currentFilter = "all";
 
-  function getProductsPerPage() {
-    const isMobilePortrait = window.matchMedia(
-      "(max-width: 768px) and (orientation: portrait)"
-    ).matches;
+function getProductsPerPage() {
 
-    return isMobilePortrait ? 6 : 12;
+  const isMobilePortrait = window.matchMedia(
+    "(max-width: 768px) and (orientation: portrait)"
+  ).matches;
+
+  const isSmallLandscape = window.matchMedia(
+    "(max-width: 700px) and (orientation: landscape)"
+  ).matches;
+
+  const isMediumLandscape = window.matchMedia(
+    "(min-width: 701px) and (max-width: 850px) and (orientation: landscape)"
+  ).matches;
+
+  const isLargeLandscape = window.matchMedia(
+    "(min-width: 851px) and (max-width: 950px) and (orientation: landscape)"
+  ).matches;
+
+  /* iPhone portrait */
+  if (isMobilePortrait) {
+    return 6;
   }
+
+  /* iPhone SE landscape */
+  if (isSmallLandscape) {
+    return 6;
+  }
+
+  /* Samsung S8+ landscape */
+  if (isMediumLandscape) {
+    return 6;
+  }
+
+  /* iPhone 14 Pro Max landscape */
+  if (isLargeLandscape) {
+    return 9;
+  }
+
+  /* Desktop / tablets */
+  return 12;
+}
 
   function getFilteredProducts() {
 
@@ -219,7 +253,6 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
       } else {
         productsCount.textContent = "Showing 0 products";
       }
-
     }
 
     /* Pagination buttons */
@@ -236,27 +269,59 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
       if (i === currentProductsPage) {
         pageBtn.classList.add("active");
       }
-
       pageBtn.addEventListener("click", () => {
         currentProductsPage = i;
         renderProductsPage();
+        scrollToProductsTop();
       });
-
       productsPageNumbers.appendChild(pageBtn);
-
     }
-
     /* Prev / Next state */
     productsPrevBtn.disabled = currentProductsPage === 0;
     productsNextBtn.disabled = currentProductsPage >= totalPages - 1;
-
     /* Hide Prev/Next if only 1 page */
     productsPrevBtn.style.display =
       totalPages <= 1 ? "none" : "flex";
-
     productsNextBtn.style.display =
       totalPages <= 1 ? "none" : "flex";
   }
+
+  function scrollToProductsTop() {
+  const productsToolbar = document.querySelector(".products-toolbar");
+
+  if (productsToolbar) {
+    productsToolbar.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+}
+
+productsPrevBtn.addEventListener("click", () => {
+
+  if (currentProductsPage > 0) {
+    currentProductsPage--;
+    renderProductsPage();
+    scrollToProductsTop();
+  }
+});
+
+productsNextBtn.addEventListener("click", () => {
+
+  const productsPerPage = getProductsPerPage();
+
+  const totalPages = Math.ceil(
+    getFilteredProducts().length / productsPerPage
+  );
+
+  if (currentProductsPage < totalPages - 1) {
+    currentProductsPage++;
+    renderProductsPage();
+    scrollToProductsTop();
+
+  }
+
+});
 
   /* =========================
      FILTER BUTTONS
