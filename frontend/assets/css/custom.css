@@ -21,12 +21,6 @@ header .max-w-7xl {
   padding-bottom: 10px !important;
 }
 
-.mobile-contact-row i {
-  color: #dc2626;
-  margin-right: 8px;
-  font-size: 14px;
-}
-
 .hero-bg {
   background-image: url("../images/hero-cctv.jpg");
   background-repeat: no-repeat;
