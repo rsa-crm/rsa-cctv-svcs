@@ -63,6 +63,11 @@ header .max-w-7xl {
   flex-shrink: 0;
 }
 
+.feature-icon i {
+  color: #b91c1c;
+  font-size: 38px;
+}
+
 .feature-text h3,
 .feature-text h4 {
   font-size: 16px;
