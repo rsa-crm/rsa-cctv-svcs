@@ -1446,12 +1446,6 @@ footer {
   gap: 42px;
   max-width: 760px;
   flex-wrap: wrap;
-}
-.products-hero-features {
-  display: flex;
-  align-items: center;
-  gap: 42px;
-  flex-wrap: wrap;
   margin-top: 28px;
 }
 
@@ -1515,15 +1509,12 @@ footer {
     text-align: left;
     font-size: 13px !important;
     line-height: 1.45 !important;
-    margin-top: auto !important;
     margin-bottom: 180px !important;
     position: relative;
-  
     top: 160px;
     padding-left: 4px;
-      white-space: nowrap;
-
-  transform: translateX(-10px);
+    white-space: nowrap;
+    transform: translateX(-10px);
   }
 
   .hero-nowrap {
