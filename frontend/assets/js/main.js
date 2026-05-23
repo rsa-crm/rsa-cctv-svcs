@@ -379,9 +379,21 @@ productsNextBtn.addEventListener("click", () => {
      RESPONSIVE RE-RENDER
   ========================= */
 
+  let lastProductsPerPage = getProductsPerPage();
+
   window.addEventListener("resize", () => {
-    currentProductsPage = 0;
-    renderProductsPage();
+
+    const currentPerPage = getProductsPerPage();
+
+    /* Only re-render if products-per-page actually changes */
+    if (currentPerPage !== lastProductsPerPage) {
+
+      lastProductsPerPage = currentPerPage;
+
+      renderProductsPage();
+
+    }
+
   });
 
   /* Initial render */
