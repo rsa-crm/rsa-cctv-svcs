@@ -163,7 +163,7 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
 function getProductsPerPage() {
 
   const isMobilePortrait = window.matchMedia(
-    "(max-width: 768px) and (orientation: portrait)"
+    "(max-width: 767px) and (orientation: portrait)"
   ).matches;
 
   const isSmallLandscape = window.matchMedia(
@@ -178,7 +178,11 @@ function getProductsPerPage() {
     "(min-width: 851px) and (max-width: 950px) and (orientation: landscape)"
   ).matches;
 
-  /* iPhone portrait */
+  const isIPadMiniPortrait = window.matchMedia(
+    "(min-width: 768px) and (max-width: 799px) and (orientation: portrait)"
+  ).matches;
+
+  /* Phones portrait */
   if (isMobilePortrait) {
     return 6;
   }
@@ -195,6 +199,11 @@ function getProductsPerPage() {
 
   /* iPhone 14 Pro Max landscape */
   if (isLargeLandscape) {
+    return 9;
+  }
+
+  /* iPad Mini portrait */
+  if (isIPadMiniPortrait) {
     return 9;
   }
 
