@@ -275,6 +275,43 @@ footer {
   min-height: 20px !important;
   margin-top: 20px !important;
 }
+.catalog-stock-badge {
+  position: absolute;
+  top: 200px;
+  right: 14px;
+  z-index: 3;
+
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+
+  padding: 5px 8px;
+  border-radius: 999px;
+
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+/* IN STOCK */
+.catalog-stock-badge.in-stock {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+/* LOW STOCK */
+.catalog-stock-badge.low-stock {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+/* SOLD OUT */
+.catalog-stock-badge.sold-out {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
 
 @media (max-width: 767px) and (orientation: portrait) {
   #promoProductsGrid {
