@@ -277,7 +277,7 @@ footer {
 }
 .catalog-stock-badge {
   position: absolute;
-  top: 200px;
+  top: 250px;
   right: 14px;
   z-index: 3;
 
@@ -1857,8 +1857,6 @@ footer {
   padding: 0 10px;
 }
 
-
-
 .brand-strip-item img {
   max-height: 100px;
   width: auto;
@@ -1917,6 +1915,11 @@ footer {
   max-height: 100%;
   object-fit: contain;
   display: block;
+  transition: 0.25s ease;
+}
+
+.catalog-product-card:hover .catalog-product-image img {
+  transform: scale(1.03);
 }
 
 .catalog-brand-logo {
@@ -1943,6 +1946,12 @@ footer {
   color: #111827;
   line-height: 1.35;
   margin-bottom: 4px;
+}
+
+.catalog-product-image,
+.catalog-product-model,
+.catalog-product-name {
+  cursor: pointer;
 }
 
 .catalog-product-subcategory {
@@ -2088,6 +2097,198 @@ footer {
 .products-breadcrumb span:last-child {
   color: #b91c1c;
   font-weight: 800;
+}
+/*Desktop Modal*/
+.product-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.product-modal-overlay.hidden {
+  display: none;
+}
+
+.product-modal {
+  position: relative;
+  background: #ffffff;
+  width: min(960px, 100%);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  animation: productModalIn 0.22s ease;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes productModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.product-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: none;
+  background: #111827;
+  color: #ffffff;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.product-modal-image {
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 34px;
+}
+
+.product-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-modal-content {
+  padding: 34px;
+}
+
+.product-modal-brand {
+  width: 95px;
+  height: 55px;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: 8px;
+}
+
+.product-modal-model {
+  font-size: 13px;
+  font-weight: 900;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.product-modal-title {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.product-modal-category {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.product-modal-price {
+  font-size: 22px;
+  font-weight: 900;
+  color: #b91c1c;
+  margin-bottom: 14px;
+}
+
+.product-modal-features h3 {
+  font-size: 14px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.product-modal-features ul {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.product-modal-features li {
+  font-size: 14px;
+  color: #374151;
+}
+
+.product-modal-features li::before {
+  content: "✓";
+  color: #b91c1c;
+  font-weight: 900;
+  margin-right: 8px;
+}
+
+.product-modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.product-modal-primary-btn,
+.product-modal-secondary-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.product-modal-primary-btn {
+  background: #b91c1c;
+  color: #ffffff;
+}
+
+.product-modal-secondary-btn {
+  background: #111827;
+  color: #ffffff;
+}
+/*Mobile Modal*/
+@media (max-width: 768px) {
+  .product-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .product-modal {
+    width: 100%;
+    max-height: 92vh;
+    grid-template-columns: 1fr;
+    border-radius: 18px 18px 0 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-modal-image {
+    min-height: 260px;
+    padding: 28px;
+  }
+
+  .product-modal-content {
+    padding: 24px;
+  }
+
+  .product-modal-title {
+    font-size: 21px;
+  }
+
+  .product-modal-actions {
+    flex-direction: column;
+  }
 }
 /* =========================
    SERVICE FEATURES STRIP

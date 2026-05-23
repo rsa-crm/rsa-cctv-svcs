@@ -256,7 +256,14 @@
           <!-- Products Grid -->
           <div class="products-catalog-grid">
             <!--Sample Product 1-->
-            <div class="catalog-product-card">
+            <div class="catalog-product-card"
+                data-product-name="Hikvision 6 MP AcuSense Fixed Bullet Network Camera"
+                data-product-model="DS-2CD2T63G2-2I/4I"
+                data-product-category="6MP Bullet Camera"
+                data-product-price="₱2,950.00"
+                data-product-image="./assets/images/products/bullet-camera-01.png"
+                data-product-brand="./assets/images/brands/hikvision.png"
+                data-product-features="High quality imaging with 6 MP resolution|Efficient H.265+ compression technology|Clear imaging against strong backlight due to 120 dB WDR technology|Focusing on human and vehicle classification based on deep learning|Water and dust resistant (IP67)">
               <div class="catalog-product-image"><img src="./assets/images/products/bullet-camera-01.png" alt="4MP Bullet Camera"></div>
               <span class="catalog-stock-badge in-stock">In Stock</span>
               <img class="catalog-brand-logo" src="./assets/images/brands/hikvision.png">
@@ -592,6 +599,40 @@
     </div>
   </footer>
 
+  <!-- PRODUCT QUICK VIEW MODAL -->
+  <div id="productModalOverlay" class="product-modal-overlay hidden">
+    <div class="product-modal">
+      <button id="productModalClose" class="product-modal-close" type="button">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="product-modal-image">
+        <img id="modalProductImage" src="" alt="">
+      </div>
+
+      <div class="product-modal-content">
+        <img id="modalBrandLogo" class="product-modal-brand" src="" alt="">
+        <p id="modalProductModel" class="product-modal-model"></p>
+        <h2 id="modalProductName" class="product-modal-title"></h2>
+        <p id="modalProductCategory" class="product-modal-category"></p>
+        <div id="modalProductPrice" class="product-modal-price"></div>
+        <div id="modalStockBadge" class="product-modal-stock"></div>
+        <div class="product-modal-features">
+          <h3>Key Features</h3>
+          <ul id="modalKeyFeatures"></ul>
+        </div>
+        <div class="product-modal-actions">
+          <a href="booking.html" class="product-modal-primary-btn">
+            Request Site Visit
+          </a>
+          <a href="contact-us.html" class="product-modal-secondary-btn">
+            Inquire Now
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
   <script src="./assets/js/main.js"></script>
 </body>
 </html>

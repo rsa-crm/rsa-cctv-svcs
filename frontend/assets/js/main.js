@@ -524,3 +524,79 @@ if (categoryScrollWrap && categoryScrollStrip && categoryScrollLeft && categoryS
     });
   });
 }
+/* =========================
+   PRODUCT QUICK VIEW MODAL
+========================= */
+
+const productModalOverlay = document.getElementById("productModalOverlay");
+const productModalClose = document.getElementById("productModalClose");
+
+const modalProductImage = document.getElementById("modalProductImage");
+const modalBrandLogo = document.getElementById("modalBrandLogo");
+const modalProductModel = document.getElementById("modalProductModel");
+const modalProductName = document.getElementById("modalProductName");
+const modalProductCategory = document.getElementById("modalProductCategory");
+const modalProductPrice = document.getElementById("modalProductPrice");
+
+const productCards = document.querySelectorAll(".catalog-product-card");
+
+const modalKeyFeatures = document.getElementById("modalKeyFeatures");
+
+productCards.forEach((card) => {
+
+  const clickableAreas = [
+    card.querySelector(".catalog-product-image"),
+    card.querySelector(".catalog-product-model"),
+    card.querySelector(".catalog-product-name")
+  ];
+
+  clickableAreas.forEach((area) => {
+
+    if (!area) return;
+
+    area.addEventListener("click", () => {
+
+      modalProductImage.src = card.dataset.productImage;
+      modalBrandLogo.src = card.dataset.productBrand;
+
+      modalProductModel.textContent = card.dataset.productModel;
+      modalProductName.textContent = card.dataset.productName;
+      modalProductCategory.textContent = card.dataset.productCategory;
+      modalProductPrice.textContent = card.dataset.productPrice;
+
+      const features = card.dataset.productFeatures
+      ? card.dataset.productFeatures.split("|")
+      : [];
+
+      features.forEach((feature) => {
+        const li = document.createElement("li");
+        li.textContent = feature.trim();
+        modalKeyFeatures.appendChild(li);
+      });
+
+      productModalOverlay.classList.remove("hidden");
+
+      document.body.style.overflow = "hidden";
+    });
+
+  });
+
+});
+
+/* CLOSE MODAL */
+
+productModalClose.addEventListener("click", () => {
+  productModalOverlay.classList.add("hidden");
+  document.body.style.overflow = "";
+});
+
+/* CLICK OUTSIDE TO CLOSE */
+
+productModalOverlay.addEventListener("click", (e) => {
+
+  if (e.target === productModalOverlay) {
+    productModalOverlay.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+});
