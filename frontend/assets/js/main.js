@@ -78,9 +78,20 @@ if (featuredGrid && featuredDotsContainer) {
 
   renderFeaturedProducts();
 
+  let lastFeaturedPerPage = getProductsPerPage();
+
   window.addEventListener("resize", () => {
-    currentPage = 0;
-    renderFeaturedProducts();
+
+    const currentPerPage = getProductsPerPage();
+
+    if (currentPerPage !== lastFeaturedPerPage) {
+
+      lastFeaturedPerPage = currentPerPage;
+
+      renderFeaturedProducts();
+
+    }
+
   });
 }
 const promoGrid = document.getElementById("promoProductsGrid");
@@ -134,9 +145,20 @@ if (promoGrid && promoDotsContainer) {
 
   renderPromoProducts();
 
+let lastPromoPerPage = getPromoProductsPerPage();
+
   window.addEventListener("resize", () => {
-    currentPromoPage = 0;
-    renderPromoProducts();
+
+    const currentPerPage = getPromoProductsPerPage();
+
+    if (currentPerPage !== lastPromoPerPage) {
+
+      lastPromoPerPage = currentPerPage;
+
+      renderPromoProducts();
+
+    }
+
   });
 }
 /* =========================
