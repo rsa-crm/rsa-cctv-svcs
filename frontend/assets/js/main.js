@@ -536,6 +536,7 @@ const modalBrandLogo = document.getElementById("modalBrandLogo");
 const modalProductModel = document.getElementById("modalProductModel");
 const modalProductName = document.getElementById("modalProductName");
 const modalProductCategory = document.getElementById("modalProductCategory");
+const modalStockBadge = document.getElementById("modalStockBadge");
 const modalProductPrice = document.getElementById("modalProductPrice");
 
 const productCards = document.querySelectorAll(".catalog-product-card");
@@ -562,16 +563,54 @@ productCards.forEach((card) => {
       modalProductModel.textContent = card.dataset.productModel;
       modalProductName.textContent = card.dataset.productName;
       modalProductCategory.textContent = card.dataset.productCategory;
-      modalProductPrice.textContent = card.dataset.productPrice;
+
+      const currentPrice = card.dataset.productPrice || "";
+      const oldPrice = card.dataset.productOldPrice || "";
+
+      if (oldPrice) {
+      modalProductPrice.innerHTML = `
+        <span class="modal-old-price">${oldPrice}</span>
+        <span class="modal-sale-price">${currentPrice}</span>
+      `;
+      } else {
+        modalProductPrice.innerHTML = `
+          <span class="modal-regular-price">${currentPrice}</span>
+        `;
+      }
+
+      const stock = Number(card.dataset.productStock || 0);
+      const lowQuantity = Number(card.dataset.productLowQuantity || 10);
+
+      modalStockBadge.className = "product-modal-stock";
+
+      if (stock === 0) {
+        modalStockBadge.textContent = "Sold Out";
+        modalStockBadge.classList.add("sold-out");
+      } else if (stock <= lowQuantity) {
+        modalStockBadge.textContent = "Low Stock";
+        modalStockBadge.classList.add("low-stock");
+      } else {
+        modalStockBadge.textContent = "In Stock";
+        modalStockBadge.classList.add("in-stock");
+      }
+
+      modalKeyFeatures.innerHTML = "";
 
       const features = card.dataset.productFeatures
       ? card.dataset.productFeatures.split("|")
       : [];
 
       features.forEach((feature) => {
+
         const li = document.createElement("li");
-        li.textContent = feature.trim();
+
+        li.innerHTML = `
+          <i class="fa-solid fa-circle-check"></i>
+          <span>${feature.trim()}</span>
+        `;
+
         modalKeyFeatures.appendChild(li);
+
       });
 
       productModalOverlay.classList.remove("hidden");
@@ -595,6 +634,20 @@ productModalClose.addEventListener("click", () => {
 productModalOverlay.addEventListener("click", (e) => {
 
   if (e.target === productModalOverlay) {
+    productModalOverlay.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+});
+
+/* ESC KEY CLOSE */
+
+document.addEventListener("keydown", (e) => {
+
+  if (
+    e.key === "Escape" &&
+    !productModalOverlay.classList.contains("hidden")
+  ) {
     productModalOverlay.classList.add("hidden");
     document.body.style.overflow = "";
   }
