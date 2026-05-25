@@ -567,12 +567,27 @@ productCards.forEach((card) => {
       const currentPrice = card.dataset.productPrice || "";
       const oldPrice = card.dataset.productOldPrice || "";
 
+      function parsePrice(priceText) {
+        return Number(priceText.replace(/[₱,\s]/g, ""));
+      }
+
       if (oldPrice) {
-      modalProductPrice.innerHTML = `
-        <span class="modal-old-price">${oldPrice}</span>
-        <span class="modal-sale-price">${currentPrice}</span>
-      `;
+        const currentPriceNumber = parsePrice(currentPrice);
+        const oldPriceNumber = parsePrice(oldPrice);
+        const modalSaleBadge = document.getElementById("modalSaleBadge");
+        modalSaleBadge.classList.remove("hidden");
+
+        const discountPercent = Math.round(
+          ((oldPriceNumber - currentPriceNumber) / oldPriceNumber) * 100
+        );
+
+        modalProductPrice.innerHTML = `
+          <span class="modal-old-price">${oldPrice}</span>
+          <span class="modal-sale-price">${currentPrice}</span>
+          <span class="modal-discount-badge">${discountPercent}% OFF</span>
+        `;
       } else {
+        modalSaleBadge.classList.add("hidden");
         modalProductPrice.innerHTML = `
           <span class="modal-regular-price">${currentPrice}</span>
         `;
