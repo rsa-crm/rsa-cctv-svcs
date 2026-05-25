@@ -566,7 +566,8 @@ productCards.forEach((card) => {
 
       const currentPrice = card.dataset.productPrice || "";
       const oldPrice = card.dataset.productOldPrice || "";
-
+      const modalSaleBadge = document.getElementById("modalSaleBadge");
+      
       function parsePrice(priceText) {
         return Number(priceText.replace(/[₱,\s]/g, ""));
       }
@@ -574,7 +575,7 @@ productCards.forEach((card) => {
       if (oldPrice) {
         const currentPriceNumber = parsePrice(currentPrice);
         const oldPriceNumber = parsePrice(oldPrice);
-        const modalSaleBadge = document.getElementById("modalSaleBadge");
+
         modalSaleBadge.classList.remove("hidden");
 
         const discountPercent = Math.round(
