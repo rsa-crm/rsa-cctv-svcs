@@ -2253,8 +2253,8 @@ footer {
 
 .product-modal-close {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 20px;
+  right: 20px;
   width: 38px;
   height: 38px;
   border-radius: 999px;
