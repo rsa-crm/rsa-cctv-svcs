@@ -172,6 +172,8 @@ const productFilterButtons = document.querySelectorAll(".product-filter-btn");
 const productsSectionTitle = document.getElementById("productsSectionTitle");
 const productsSearchInput = document.getElementById("productsSearchInput");
 const productsEmptyState = document.getElementById("productsEmptyState");
+const productsSortDropdown = document.getElementById("productsSortDropdown");
+const brandFilterItems = document.querySelectorAll(".brand-strip-item");
 
 if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
   const allProductCards = Array.from(
@@ -181,6 +183,8 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
   let currentProductsPage = 0;
   let currentFilter = "all";
   let currentSearch = "";
+  let currentSort = "default";
+  let currentBrand = "all";
 
   function getProductsPerPage() {
     const isMobilePortrait = window.matchMedia(
@@ -213,7 +217,7 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
   }
 
   function getFilteredProducts() {
-    let filtered = allProductCards;
+    let filtered = [...allProductCards];
 
     if (currentFilter === "sale") {
       filtered = filtered.filter((card) =>
@@ -222,6 +226,13 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
     } else if (currentFilter !== "all") {
       filtered = filtered.filter((card) =>
         card.dataset.category === currentFilter
+      );
+    }
+
+    /* BRAND FILTER */
+    if (currentBrand !== "all") {
+      filtered = filtered.filter((card) =>
+        card.dataset.productBrandName === currentBrand
       );
     }
 
@@ -246,7 +257,57 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
         return searchableText.includes(searchText);
       });
     }
+  /* SORTING */
 
+  if (currentSort === "price-low") {
+
+    filtered.sort((a, b) => {
+
+      const aPrice = parsePrice(
+        a.dataset.productPrice || "0"
+      );
+
+      const bPrice = parsePrice(
+        b.dataset.productPrice || "0"
+      );
+
+      return aPrice - bPrice;
+
+    });
+
+  }
+
+  else if (currentSort === "price-high") {
+
+    filtered.sort((a, b) => {
+
+      const aPrice = parsePrice(
+        a.dataset.productPrice || "0"
+      );
+
+      const bPrice = parsePrice(
+        b.dataset.productPrice || "0"
+      );
+
+      return bPrice - aPrice;
+
+    });
+
+  }
+
+  else if (currentSort === "newest") {
+
+    filtered.reverse();
+
+  }
+
+  else if (currentSort === "sale") {
+
+    filtered = filtered.filter((card) =>
+      card.querySelector(".catalog-sale-price")
+    );
+
+  }
     return filtered;
   }
 
@@ -278,6 +339,7 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
 
     filteredProducts.slice(start, end).forEach((card) => {
       card.style.display = "flex";
+      productsGrid.appendChild(card);
     });
 
     if (productsCount) {
@@ -383,11 +445,47 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
     });
   });
 
+  /* BRAND FILTER */
+  brandFilterItems.forEach((item) => {
+
+    item.addEventListener("click", () => {
+
+      const selectedBrand = item.dataset.brandFilter || "all";
+      const isAlreadyActive = item.classList.contains("active");
+
+      brandFilterItems.forEach((brand) => {
+        brand.classList.remove("active");
+      });
+
+      if (isAlreadyActive) {
+        currentBrand = "all";
+      } else {
+        item.classList.add("active");
+        currentBrand = selectedBrand;
+      }
+      currentProductsPage = 0;
+      renderProductsPage();
+    });
+  });
+
   if (productsSearchInput) {
     productsSearchInput.addEventListener("input", () => {
       currentSearch = productsSearchInput.value;
       currentProductsPage = 0;
       renderProductsPage();
+    });
+  }
+
+  if (productsSortDropdown) {
+
+  productsSortDropdown.addEventListener("change", () => {
+
+    currentSort = productsSortDropdown.value;
+
+    currentProductsPage = 0;
+
+    renderProductsPage();
+
     });
   }
 
