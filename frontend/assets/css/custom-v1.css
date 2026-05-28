@@ -367,7 +367,7 @@ footer {
   }
 
   .catalog-stock-badge {
-    top: 200px;
+    top:200px;
   }
 }
 
@@ -437,10 +437,6 @@ footer {
 
   margin-top: 10px;
   margin-bottom: 10px;
-}
-
-.products-empty-state.hidden {
-  display: none !important;
 }
 
 .products-empty-state i {
@@ -1961,7 +1957,8 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: 0.25s ease;
+  box-shadow 0.25s ease;
 }
 
 .catalog-product-card:hover {
@@ -1986,6 +1983,9 @@ footer {
   transition: 0.25s ease;
 }
 
+.catalog-product-card:hover .catalog-product-image img {
+  transform: scale(1.03);
+}
 
 .catalog-brand-logo {
   width: 90px;
@@ -2127,6 +2127,11 @@ footer {
   position: relative;
   width: 260px;
   flex-shrink: 0;
+}
+
+.products-search-wrap {
+  position: relative;
+  width: 260px;
 }
 
 .products-search-wrap i {

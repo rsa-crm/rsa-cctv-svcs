@@ -257,12 +257,10 @@ if (productsGrid && productsPageNumbers && productsPrevBtn && productsNextBtn) {
     const totalProducts = filteredProducts.length;
 
     if (productsEmptyState) {
-
-      if (totalProducts === 0) {
-        productsEmptyState.classList.remove("hidden");
-      } else {
-        productsEmptyState.classList.add("hidden");
-      }
+      productsEmptyState.classList.toggle(
+        "hidden",
+        totalProducts > 0
+      );
     }
 
     const totalPages = Math.ceil(totalProducts / productsPerPage);
@@ -631,15 +629,16 @@ if (
     });
   });
 
-  productModalClose.addEventListener("click", () => {
+  function closeProductModal() {
     productModalOverlay.classList.add("hidden");
     document.body.style.overflow = "";
-  });
+  }
+
+  productModalClose.addEventListener("click", closeProductModal);
 
   productModalOverlay.addEventListener("click", (e) => {
     if (e.target === productModalOverlay) {
-      productModalOverlay.classList.add("hidden");
-      document.body.style.overflow = "";
+      closeProductModal();
     }
   });
 
@@ -648,8 +647,7 @@ if (
       e.key === "Escape" &&
       !productModalOverlay.classList.contains("hidden")
     ) {
-      productModalOverlay.classList.add("hidden");
-      document.body.style.overflow = "";
+        closeProductModal();
     }
   });
 }
