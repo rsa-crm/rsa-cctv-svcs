@@ -158,6 +158,57 @@ if (promoGrid && promoDotsContainer) {
     }
   });
 }
+/* =========================
+   HOME TOP BRANDS PAGING
+========================= */
+
+const homeBrandsGrid = document.getElementById("homeBrandsGrid");
+const homeBrandsDots = document.getElementById("homeBrandsDots");
+
+if (homeBrandsGrid && homeBrandsDots) {
+  const brandItems = Array.from(
+    homeBrandsGrid.querySelectorAll(".home-brand-item")
+  );
+
+  let currentBrandPage = 0;
+  const brandsPerPage = 6; // 2 columns x 3 rows
+
+  function renderHomeBrands() {
+    const totalPages = Math.ceil(brandItems.length / brandsPerPage);
+
+    if (currentBrandPage >= totalPages) {
+      currentBrandPage = totalPages - 1;
+    }
+
+    brandItems.forEach((item, index) => {
+      const start = currentBrandPage * brandsPerPage;
+      const end = start + brandsPerPage;
+
+      item.style.display = index >= start && index < end ? "flex" : "none";
+    });
+
+    homeBrandsDots.innerHTML = "";
+
+    for (let i = 0; i < totalPages; i++) {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "home-brand-dot";
+
+      if (i === currentBrandPage) {
+        dot.classList.add("active");
+      }
+
+      dot.addEventListener("click", () => {
+        currentBrandPage = i;
+        renderHomeBrands();
+      });
+
+      homeBrandsDots.appendChild(dot);
+    }
+  }
+
+  renderHomeBrands();
+}
 
 /* =========================
    PRODUCTS PAGE PAGINATION + FILTER + SEARCH

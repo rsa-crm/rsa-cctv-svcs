@@ -435,7 +435,7 @@ footer {
 }
 /* =========================
    TOP BRANDS - DEFAULT DESKTOP
-========================= */
+========================= 
 
 .top-brands-grid > div {
   height: 100px;
@@ -451,6 +451,102 @@ footer {
   object-fit: contain;
   display: block;
   transform: scale(1.1);
+}
+*/
+/* =========================
+   HOME TOP BRANDS PAGING
+========================= */
+
+.home-brands-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 28px;
+  min-height: 0;
+  margin-top: 10px;
+
+  height: 220px;          /* fixed brand area */
+  align-content: start;   /* logos stay at top */
+}
+
+.home-brand-item {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-brand-logo-box {
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #fff;
+}
+
+.home-brand-logo-box img {
+  max-width: 200px;
+  max-height: 100px;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+.home-brand-logo-box {
+    height: 60px;
+}
+
+.home-brand-item:hover .home-brand-logo-box {
+  transform: translateY(-3px);
+}
+
+/* Dots */
+.home-brands-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  min-height: 16px;
+  margin-top: 10px;
+}
+
+.home-brand-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #d1d5db;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.home-brand-dot.active {
+  background: #b91c1c;
+}
+
+/* Mobile */
+@media (max-width: 767px) and (orientation: portrait) {
+  .home-brands-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+    min-height: 300px;
+  }
+
+  .home-brand-item {
+    height: 82px;
+  }
+
+  .home-brand-item img {
+    width: 200%;
+    height: 200%;
+  }
 }
 /* =========================
    NO RESULT SEARCH
@@ -1414,16 +1510,17 @@ footer {
 
 /* =========================
    TOP BRANDS LOGO ALIGNMENT - DESKTOP
-========================= */
+========================= 
 
 @media (min-width: 1181px) {
   .top-brands-grid {
     transform: translateY(12px);
   }
 }
+*/
 /* =========================
    TOP BRANDS - IPAD LANDSCAPE
-========================= */
+========================= 
 
 @media (min-width: 900px) and (max-width: 1180px) and (min-height: 650px) and (orientation: landscape) {
   .top-brands-grid {
@@ -1500,9 +1597,10 @@ footer {
   }
 
 }
+*/
 /* =========================
    TOP BRANDS - SMALL MOBILE LANDSCAPE
-========================= */
+========================= 
 
 @media (max-height: 430px) and (orientation: landscape) {
 
@@ -1511,10 +1609,10 @@ footer {
   }
 
 }
-
+*/
 /* =========================
    TOP BRANDS - LARGE MOBILE LANDSCAPE
-========================= */
+========================= 
 
 @media (min-height: 411px) and (max-height: 500px) and (orientation: landscape) {
 
@@ -1534,10 +1632,10 @@ footer {
   }
 
 }
-
+*/
 /* =========================
    TOP BRANDS - MOBILE LANDSCAPE VERTICAL BALANCE
-========================= */
+========================= 
 
 @media (max-height: 500px) and (orientation: landscape) {
 
@@ -1546,6 +1644,7 @@ footer {
   }
 
 }
+  */
 /* =========================
    SERVICES PREVIEW - IPAD PORTRAIT FINAL
 ========================= */
