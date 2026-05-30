@@ -304,6 +304,30 @@ footer {
   text-transform: uppercase;
 }
 
+.package-banner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.package-banner-card {
+  display: block;
+  background: #fff;
+  aspect-ratio: 1 / 1;
+}
+
+.package-banner-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.package-banner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.08);
+}
+
 /* IN STOCK */
 .catalog-stock-badge.in-stock {
   background: #dcfce7;
@@ -752,6 +776,20 @@ footer {
     padding: 16px 10px;
     gap: 10px;
     align-items: center;
+  }
+
+  .package-banner-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .package-banner-card {
+    aspect-ratio: auto;
+  }
+
+  .package-banner-card img {
+    width: 100%;
+    height: auto;
   }
 
   .feature-box:nth-child(2),
